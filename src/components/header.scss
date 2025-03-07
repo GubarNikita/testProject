@@ -1,26 +1,51 @@
 .header {
-  margin-top: 60px;
+  height: 44px;
+  background-color: #27272a;
+  padding: 0 20px;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  width: 100%;
+  column-gap: 30px;
 
-  h2 {
-    flex: 1;
-    text-align: center;
-    color: #52b709;
-    font-family: "GT Eesti Pro Display", sans-serif;
-    font-size: 5em;
-    font-weight: 700;
-    font-style: normal;
-    letter-spacing: normal;
-    line-height: 77.81px;
+  &-button {
+    all: unset;
+    cursor: pointer;
+    display: inline-block;
+    color: #a1a1aa;
+    font: normal 400 14px/16.41px "Roboto";
+    position: relative;
 
-    span {
-      color: #282828;
-      font-style: normal;
-      letter-spacing: 0.56px;
-      line-height: normal;
+    &:hover {
+      color: #dddddd;
+
+      svg {
+        fill: #ffffff;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -13px;
+      width: 0;
+      height: 2px;
+      background-color: #ffffff;
+      transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    }
+
+    &.active {
+      color: #ffffff;
+
+      &::after {
+        width: 100%;
+        left: 0;
+      }
+    }
+
+    &:not(.active)::after {
+      width: 0;
+      left: 50%;
     }
   }
 }

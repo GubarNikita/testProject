@@ -2,5 +2,132 @@
   background-color: #202124;
   min-height: 100vh;
   width: 100%;
-  padding: 20px 0;
+  color: #ffffff;
+
+  &-project {
+    display: flex;
+    width: 100%;
+  }
+
+  .project {
+    &-components {
+      display: flex;
+      flex-direction: column;
+      background-color: #27272a;
+      width: 234px;
+      min-height: 992px;
+    }
+
+    &__info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #a1a1aa;
+      font: normal 400 14px "Roboto";
+      height: 44px;
+      padding: 0 10px 0 20px;
+      border: 1px solid #414144;
+
+      span {
+        font-size: 10px;
+      }
+    }
+
+    &-component {
+      display: flex;
+      column-gap: 14px;
+      align-items: center;
+      cursor: pointer;
+      padding: 5px 0 5px 20px;
+
+      &__text {
+        font: normal 400 14px "Roboto";
+        margin: 0;
+      }
+
+      &.active {
+        background-color: #a1a1aa;
+      }
+    }
+
+    &-estimate {
+      flex-grow: 1;
+
+      .estimate {
+        &-title {
+          display: flex;
+          background-color: #27272a;
+          height: 44px;
+          border: 1px solid #414144;
+
+          &__text {
+            margin: 0;
+            padding: 11px 15px 12px 15px;
+            font: normal 400 18px "Roboto";
+          }
+
+          &__dop {
+            border-left: 1px solid #414144;
+          }
+        }
+
+        &-table {
+          width: 100%;
+          padding: 11px 9px 0 10px;
+          font: normal 400 14px/130% "Roboto";
+
+          tr {
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
+
+            .row-icon {
+              display: inline-block;
+            }
+          }
+
+          th {
+            color: #a1a1aa;
+            // border: 1px solid #ddd;
+            height: 30px;
+            padding: 0 0 0 12px;
+            display: flex;
+            justify-content: flex-start;
+          }
+
+          tbody {
+            tr:not(.level-0) {
+              .row-icon {
+                position: relative;
+
+                &::before {
+                  content: "";
+                  position: absolute;
+                  left: -34%;
+                  bottom: 16px;
+                  width: 11px;
+                  height: 1px;
+                  background-color: #c6c6c6;
+                }
+
+                &::after {
+                  content: "";
+                  position: absolute;
+                  left: -38%;
+                  bottom: 16px;
+                  width: 1px;
+                  height: 58px;
+                  background-color: #c6c6c6;
+                }
+              }
+            }
+          }
+
+          td {
+            border-top: 1px solid #414144;
+            padding: 18px 0 18px 12px;
+          }
+        }
+      }
+    }
+  }
 }
